@@ -14,3 +14,6 @@ Then we can package type class instances in four ways:
 3. by placing them in the companion object of the type class => instances are always in implicit scope.
 4. by placing them in companion object of the parameter type => instances are always in implicit scope.
 #### Recursive Implicit Resolution
+We could define type class instance by two ways:
+1. by defining concrete instances as implicit vals of the required type.
+2. by defining implicit method to construct instances from other type class instances.

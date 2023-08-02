@@ -37,6 +37,13 @@ object JsonWriterInstances {
       "name" -> JsString(value.name),
       "email" -> JsString(value.email)
     ))
+
+  implicit def optionWriter[A]
+  (implicit writer: JsonWriter[A]): JsonWriter[Option[A]] =
+    {
+      case Some(aValue) => writer.write(aValue)
+      case None => JsNull
+    }
 }
 
 // interface methods that we expose to users.
@@ -57,6 +64,7 @@ object Json {
     // Completer spot that we've called toJson method without providing the implicit parameters.
     //  It try to fix this by searching for type class instances of relevant types and inserting them at the call site:
     Json.toJson(Person("Dave", "dave@example.com"))(personWriter)
+    println(Json.toJson(Option("A string")))
 
   }
 }
@@ -72,6 +80,8 @@ object JsonSyntax {
     import JsonSyntax._
     import JsonWriterInstances._
     println(Person("Dave", "dave@example.com").toJson)
+
+
     // equal
     println(JsonWriterOps(Person("Dave", "dave@example.com")).toJson(personWriter))
   }
