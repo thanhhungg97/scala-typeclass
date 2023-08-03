@@ -83,6 +83,6 @@ object JsonSyntax {
 
 
     // equal
-    println(JsonWriterOps(Person("Dave", "dave@example.com")).toJson(personWriter))
+//    println(JsonWriterOps(Person("Dave", "dave@example.com")).toJson(personWriter))
   }
 }
