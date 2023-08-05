@@ -76,13 +76,13 @@ object JsonSyntax {
     def toJson(implicit w: JsonWriter[A]): Json = w.write(value)
   }
 
-  def main(args: Array[String]): Unit = {
-    import JsonSyntax._
-    import JsonWriterInstances._
-    println(Person("Dave", "dave@example.com").toJson)
+//  def main(args: Array[String]): Unit = {
+//    import JsonSyntax._
+//    import JsonWriterInstances._
+//    println(Person("Dave", "dave@example.com").toJson)
 
 
     // equal
 //    println(JsonWriterOps(Person("Dave", "dave@example.com")).toJson(personWriter))
-  }
+//  }
 }
