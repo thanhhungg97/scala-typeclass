@@ -1,3 +1,5 @@
+package example
+
 
 trait Printable[A] {
   def format(value: A): String

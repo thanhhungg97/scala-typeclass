@@ -1,3 +1,5 @@
+package example
+
 // Define a very simple JSON AST
 
 
